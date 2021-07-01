@@ -1,13 +1,16 @@
 require('./config/config');
 require('./models/db');
-
+const config = require('config')
 const express = require('express');
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const rtsIndex = require('./routes/index.router') //appel du dossier index.routes.js
+
 var app = express()
 
 app.use(bodyParser.json());
+app.use(express.json());
+
 app.use(cors());
 app.use('/api', rtsIndex) // pour appeler les fonction se trouve dons rtsindex on fait localhost:3000/api/nomFunction
 
